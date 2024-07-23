@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/adi/dev/cppUpstox/build",
+  "command": "/usr/bin/c++ -I/home/adi/dev/cppUpstox/include -g -std=gnu++17 -o CMakeFiles/example1.dir/examples/example1.cpp.o -c /home/adi/dev/cppUpstox/examples/example1.cpp",
+  "file": "/home/adi/dev/cppUpstox/examples/example1.cpp",
+  "output": "CMakeFiles/example1.dir/examples/example1.cpp.o"
+}
+]
