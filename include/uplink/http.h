@@ -59,27 +59,23 @@ class response {
     };
     ;
     explicit operator bool() const { return !error; };
-    uint16_t code = 0;   /// http code
-    bool error = false;  /// true if kite api reported an error (a status field)
-    nlohmann::json data; /// parsed body
-    std::string errorType =
-        "NoException";   /// corresponds to kite api's \a error_type field (if a
-                         /// error is \a true)
-    std::string message; /// corresponds to kite api's \a message field (if a
-                         /// error is a true)
-    std::string rawBody; /// raw body, set in case of non-json response
+    uint16_t code = 0;   // http code
+    bool error = false;  // true if upstox api reported an error (a status field)
+    nlohmann::json data; // parsed body
+    std::string errorType = "NoException";
+    std::string message;
+    std::string rawBody; // raw body, set in case of non-json response
   private:
     void parse(uint16_t code, const std::string& body, bool json) {
         if (json) {
             parser::parse(data, body);
             if (code != static_cast<uint16_t>(code::OK)) {
                 std::string status;
-                status =
-                    parser::get<std::string, nlohmann::json>(data, "status");
-                errorType = parser::get<std::string, nlohmann::json>(
-                    data, "error_type");
+                status = parser::get<std::string>(data, "status");
+                errorType =
+                    parser::get<std::string>(data["errors"][0], "errorCode");
                 message =
-                    parser::get<std::string, nlohmann::json>(data, "message");
+                    parser::get<std::string>(data["errors"][0], "message");
                 if (status != "success") { error = true; };
             }
         } else {

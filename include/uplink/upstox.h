@@ -26,11 +26,13 @@ class upstox {
     /*
      *@brief Get user's profile.
      *@return userProfile user profile
-     *@paragraph ex1 Example
      */
     userProfile profile();
     allMargins getMargins();
     margins getMargins(const string& segment);
+
+  // orders
+   // string placeOrder(const placeOrderParams& params);
 
     string urlEncode(const string& url) const {
         CURL* curl = curl_easy_init();
@@ -67,7 +69,7 @@ class upstox {
         { "user.profile", { http::METHOD::GET, "/v2/user/profile" } },
         { "user.margin", { http::METHOD::GET, "/v2/user/get-funds-and-margin" } },
         { "user.margin.segment",
-            { http::METHOD::GET, "/v2/user/get-funds-and-margin/{0}" } }
+            { http::METHOD::GET, "/v2/user/get-funds-and-margin?segment={}" } }
     };
     string key;
     string redirect_uri;

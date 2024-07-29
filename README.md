@@ -24,7 +24,7 @@ CPPUpstox requires C++17 and following dependencies
 Clone the repository
 
 ```sh
-https://github.com/CS-Aditya-Rawat/cppUpstox.git
+https://github.com/CS-Aditya-Rawat/CPPUpstox.git
 ```
 
 CPPUpstox is a header-only library. Copy the `include` folder to system or project's include path.

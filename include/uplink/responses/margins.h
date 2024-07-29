@@ -5,6 +5,5 @@
 
 
 namespace upstox_api {
-  using std::string;
-
+// inline std::vector<orderMargins> upstox::getOrderMargins()
 }
